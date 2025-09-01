@@ -1,0 +1,30 @@
+name: First Workflow   # Name of the workflow (shows up in GitHub Actions tab)
+
+on:                   # Define the triggers (when this workflow should run)
+  push:               # Trigger when code is pushed
+    branches: [ "main" ]  # Only run if push is on the 'main' branch
+  pull_request:       # Trigger when a Pull Request is opened/updated
+    branches: [ "main" ]  # Only if the PR targets the 'main' branch
+  workflow_dispatch:  # Allows manual trigger from GitHub Actions tab
+
+jobs:                 # Define all jobs inside this workflow
+  hello-world:        # First job (job id = hello-world)
+    runs-on: ubuntu-latest  # Runs this job on an Ubuntu VM
+    steps:            # Steps run inside the job (sequentially)
+      - name: Checkout code
+        uses: actions/checkout@v4   # Clones your repo into the VM
+
+      - name: Say Hello 1
+        run: echo "Hello from GitHub Actions!"   # Executes a shell command
+        shell: bash                             # Explicitly using bash shell
+
+      - name: Say Hello 2
+        run: echo "Hello again from GitHub Actions!"  # Another echo step
+        shell: bash
+
+  goodbye:            # Second job (job id = goodbye)
+    runs-on: ubuntu-latest  # This also runs on a fresh Ubuntu VM
+    steps:
+      - name: goodbye-world
+        run: echo "Goodbye world!!!"   # Prints goodbye message
+        shell: bash
