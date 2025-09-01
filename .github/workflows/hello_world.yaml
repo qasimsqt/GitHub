@@ -19,7 +19,7 @@ jobs:                 # Define all jobs inside this workflow
         shell: bash                             # Explicitly using bash shell
 
       - name: Say Hello 2
-        run: echo "Hello again from GitHub Actions!"  # Another echo step
+        run: echo "Hello again from GitHub Actions! MERA NAAM QASIM HAI"  # Another echo step
         shell: bash
 
   goodbye:            # Second job (job id = goodbye)
