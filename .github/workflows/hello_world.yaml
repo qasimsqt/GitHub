@@ -25,6 +25,10 @@ jobs:                 # Define all jobs inside this workflow
       - name: Basic CMDS
         run: ls -lathr  # Another echo step
         shell: bash
+      
+      - name: Basic CMDS
+        run: uname -a  # Another echo step
+        shell: bash
 
   goodbye:            # Second job (job id = goodbye)
     runs-on: ubuntu-latest  # This also runs on a fresh Ubuntu VM
