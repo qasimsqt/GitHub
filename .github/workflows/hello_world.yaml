@@ -22,6 +22,10 @@ jobs:                 # Define all jobs inside this workflow
         run: echo "Hello again from GitHub Actions! MERA NAAM QASIM HAI"  # Another echo step
         shell: bash
 
+      - name: Basic CMDS
+        run: ls -lathr  # Another echo step
+        shell: bash
+
   goodbye:            # Second job (job id = goodbye)
     runs-on: ubuntu-latest  # This also runs on a fresh Ubuntu VM
     steps:
