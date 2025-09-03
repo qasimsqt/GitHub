@@ -31,7 +31,7 @@ jobs:                 # Define all jobs inside this workflow
         shell: bash
 
   goodbye:            # Second job (job id = goodbye)
-    runs-on: ubuntu-latestt  # This also runs on a fresh Ubuntu VM
+    runs-on: ubuntu-latest  # This also runs on a fresh Ubuntu VM
     steps:
       - name: goodbye-world
         run: echo "Goodbye world!!!"   # Prints goodbye message
