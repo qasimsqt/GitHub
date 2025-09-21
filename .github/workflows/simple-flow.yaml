@@ -1,0 +1,22 @@
+name: Add or Update a Key/Value Pair in AWS Secrets
+
+on:
+  workflow_dispatch:
+
+  
+jobs:
+  example:
+    runs-on: ubuntu-latest
+    steps:
+      # Step 1: Creates an output
+      - name: Set values
+        id: setup
+        run: |
+          echo "app_name=my-app" >> $GITHUB_OUTPUT
+          echo "version=1.0.0" >> $GITHUB_OUTPUT
+      
+      # Step 2: Uses the outputs
+      - name: Display values
+        run: |
+          echo "App: ${{ steps.setup.outputs.app_name }}"
+          echo "Version: ${{ steps.setup.outputs.version }}"
