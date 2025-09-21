@@ -20,3 +20,18 @@ jobs:
         run: |
           echo "App: ${{ steps.setup.outputs.app_name }}"
           echo "Version: ${{ steps.setup.outputs.version }}"
+
+      # Step 1: Check if we should deploy
+      - name: Check branch
+        id: check_branch
+        run: |
+          if [[ "${{ github.ref }}" == "refs/heads/main" ]]; then
+            echo "should_deploy=true" >> $GITHUB_OUTPUT
+          else
+            echo "should_deploy=false" >> $GITHUB_OUTPUT
+          fi
+      
+      # Step 2: Only deploy if main branch
+      - name: Deploy
+        if: steps.check_branch.outputs.should_deploy == 'true'
+        run: echo "Deploying to production!"
